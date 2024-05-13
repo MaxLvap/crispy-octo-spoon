@@ -1,0 +1,24 @@
+def find_second_largest(list1):
+  """
+  This function finds the second largest element in a list.
+  For example: find_second_largest([1, 5, 2, 8, 3]) will return 5.
+  """
+  if len(list1) < 2:
+    return None
+  
+  largest = max(list1[0], list1[1])
+  second_largest = min(list1[0], list1[1])
+  
+  for i in range(2, len(list1)):
+    if list1[i] > largest:
+      second_largest = largest
+      largest = list1[i]
+    elif list1[i] > second_largest and list1[i] != largest:
+      second_largest = list1[i]
+  
+  return second_largest
+
+# Example usage
+my_list = [1, 5, 2, 8, 3]
+second_largest_element = find_second_largest(my_list)
+print(f"The second largest element in the list is: {second_largest_element}")
